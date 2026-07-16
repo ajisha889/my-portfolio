@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajisha | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fafafa;
+            font-family:cursive;
+            color: #333;
+            line-height: 1.6;
+        }
+        #nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 0 20px;
+            height: 70px;
+            background: linear-gradient(135deg, #990011 0%, #7a000d 100%);
+            box-shadow: 0 4px 20px rgba(153, 0, 17, 0.3);
+            z-index: 1000;
+        }
+
+        #nav a {
+            text-decoration: none;
+            padding: 10px 22px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        #nav a:hover {
+            color: #990011;
+            background-color: #ffffff;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+            padding: 100px 50px 50px 50px;
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+        }
+
+        .left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #me {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #990011;
+            box-shadow: 0 10px 40px rgba(153, 0, 17, 0.3);
+            transition: all 0.8s ease;
+        }
+
+        #me:hover {
+            transform: rotateY(360deg) scale(1.05);
+            box-shadow: 0 15px 50px rgba(153, 0, 17, 0.5);
+        }
+
+        .right {
+            max-width: 600px;
+        }
+
+        #intro-heading {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        #intro-heading span {
+            color: #990011;
+        }
+
+        #intro-text {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        #intro-tagline {
+            font-size: 18px;
+            color: #777;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        #ab {
+            border: none;
+            border-radius: 30px;
+            height: 50px;
+            width: 140px;
+            background: linear-gradient(135deg, #990011 0%, #7a000d 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        #ab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(153, 0, 17, 0.4);
+            background: linear-gradient(135deg, #b30014 0%, #990011 100%);
+        }
+
+        .socialmedia {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .socialmedia a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #ddd;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .socialmedia a:hover {
+            border-color: #990011;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(153, 0, 17, 0.2);
+        }
+
+        .socialmedia a i {
+            font-size: 22px;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .socialmedia a:hover i {
+            color: #990011;
+        }
+
+        section {
+            padding: 80px 50px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #222;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #990011 0%, #ff4757 100%);
+            border-radius: 2px;
+        }
+        #about {
+            background: white;
+            min-height: 100vh;
+        }
+
+        #about p {
+            font-size: 18px;
+            color: #555;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        #about h2 {
+            font-size: 28px;
+            text-align: center;
+            margin: 40px 0 25px 0;
+            color: #990011;
+        }
+
+        .facts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .fact-item {
+            background: linear-gradient(135deg, #990011 0%, #7a000d 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(153, 0, 17, 0.2);
+        }
+
+        .fact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(153, 0, 17, 0.4);
+        }
+        #skill {
+            background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+            min-height: 100vh;
+        }
+
+        .grid1, .grid2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+        }
+
+        .item1, .item2 {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 25px;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 15px;
+            font-weight: 600;
+            color: #444;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .item1:hover {
+            border-radius: 15px;
+            color: white;
+            background: linear-gradient(135deg, #990011 0%, #7a000d 100%);
+            border-color: #990011;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(153, 0, 17, 0.3);
+        }
+
+        .item2:hover {
+            border-radius: 15px;
+            color: white;
+            background: linear-gradient(135deg, #990011 0%, #7a000d 100%);
+            border-color: #990011;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(153, 0, 17, 0.3);
+        }
+        #pro {
+            background: white;
+            min-height: 100vh;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 280px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #990011;
+            box-shadow: 0 15px 40px rgba(153, 0, 17, 0.15);
+        }
+
+        .project-card i {
+            font-size: 50px;
+            color: #990011;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #777;
+            font-size: 15px;
+        }
+
+        #cert {
+            background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+            min-height: 60vh;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: #990011;
+            box-shadow: 0 10px 30px rgba(153, 0, 17, 0.15);
+        }
+
+        .cert-card i {
+            font-size: 40px;
+            color: #990011;
+            margin-bottom: 15px;
+        }
+
+        .cert-card h3 {
+            font-size: 18px;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .cert-card p {
+            color: #777;
+            font-size: 14px;
+        }
+        #contact {
+            background: linear-gradient(135deg, #990011 0%, #7a000d 100%);
+            color: white;
+            text-align: center;
+            min-height: 50vh;
+        }
+
+        #contact h1 {
+            color: white;
+        }
+
+        #contact h1::after {
+            background: white;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-social {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .contact-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .contact-social a:hover {
+            background: white;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-social a i {
+            font-size: 24px;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .contact-social a:hover i {
+            color: #990011;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            font-size: 20px;
+        }
+        footer {
+            background: #1a1a1a;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+        @media (max-width: 900px) {
+            #home {
+                flex-direction: column;
+                gap: 40px;
+                padding-top: 100px;
+            }
+
+            #intro-heading {
+                font-size: 36px;
+                text-align: center;
+            }
+
+            .right {
+                text-align: center;
+            }
+
+            .socialmedia {
+                justify-content: center;
+            }
+
+            #nav {
+                gap: 8px;
+                padding: 0 10px;
+            }
+
+            #nav a {
+                padding: 8px 14px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            #nav {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 10px;
+            }
+
+            #nav a {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+
+            #home {
+                padding: 120px 20px 50px 20px;
+            }
+
+            #me {
+                width: 220px;
+                height: 220px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skill">Skills</a>
+        <a href="#pro">Projects</a>
+        <a href="#cert">Certificates</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <div class="left">
+            <img id="me" src="IMG_20260706_175211.png" alt="Ajisha's Photo">
+        </div>
+        <div class="right">
+            <h2 id="intro-heading">Hi There,<br>I'm <span>Ajisha</span></h2>
+            <p id="intro-text">Computer Science Engineering student</p>
+            <p id="intro-tagline">Passionate about technology, problem-solving, and building web applications.</p>
+            <p id="intro-tagline"><strong>Aspiring Full Stack Developer | Problem Solver | Lifelong Learner</strong></p>
+            <a href="#about"><button id="ab">About Me</button></a>
+            <div class="socialmedia">
+                <a href="https://www.linkedin.com/in/ajisha-g-u-2809a42a4" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/ajisha889" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/ajisha_._" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61573171593056" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h1>About Me</h1>
+        <p>Hi! I'm Ajisha, a Computer Science and Engineering student passionate about creating websites and solving real-world problems through technology. I enjoy learning new skills and turning ideas into simple, user-friendly applications.</p>
+        <p>My interest in programming began during my engineering studies. As I explored different technologies, I discovered that I enjoy web development because it combines creativity with problem-solving. Every project teaches me something new and motivates me to improve.</p>
+        <p>My goal is to become a skilled Full Stack Developer capable of building responsive, accessible, and user-friendly web applications. I enjoy challenges because they help me grow both technically and personally.</p>
+        <p>When I'm not coding, I enjoy learning new technologies, improving my communication skills, exploring creative ideas, and working on personal projects that help me gain practical experience.</p>
+
+        <h2>A Few Facts About Me</h2>
+        <div class="facts">
+            <div class="fact-item">📍 India</div>
+            <div class="fact-item">🎓 CSE Student</div>
+            <div class="fact-item">💻 Aspiring Full Stack Developer</div>
+            <div class="fact-item">🌱 Always Learning</div>
+            <div class="fact-item">🤝 Open to Internships & Jobs</div>
+        </div>
+    </section>
+
+    <section id="skill">
+        <h1>Skills</h1>
+        <div class="grid1">
+            <div class="item1">Python</div>
+            <div class="item1">HTML</div>
+            <div class="item1">CSS</div>
+            <div class="item1">JavaScript</div>
+            <div class="item1">Git</div>
+            <div class="item1">GitHub</div>
+        </div>
+
+        <h1>Tools</h1>
+        <div class="grid2">
+            <div class="item2">Visual Studio Code</div>
+            <div class="item2">IBM Cognos Analytics</div>
+            <div class="item2">Google Colab</div>
+        </div>
+    </section>
+
+    <section id="pro">
+        <h1>Projects</h1>
+        <div class="gallery">
+            <div class="project-card">
+                <i class="fas fa-globe"></i>
+                <h3>Portfolio Website</h3>
+                <p>A personal portfolio showcasing skills, projects, and contact information with modern UI design.</p>
+            </div>
+            <div class="project-card">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Fitness Website</h3>
+                <p>A responsive fitness platform with workout plans, nutrition tips, and health tracking features.</p>
+            </div>
+            <div class="project-card">
+                <i class="fas fa-rocket"></i>
+                <h3>Upcoming Projects</h3>
+                <p>Exciting new projects are in development. Stay tuned for more innovative web applications!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cert">
+        <h1>Certificates</h1>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <i class="fas fa-certificate"></i>
+                <h3>Web Development</h3>
+                <p>Frontend & Backend fundamentals</p>
+            </div>
+            <div class="cert-card">
+                <i class="fas fa-code"></i>
+                <h3>Programming</h3>
+                <p>Python & JavaScript proficiency</p>
+            </div>
+            <div class="cert-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Data Analytics</h3>
+                <p>IBM Cognos Analytics</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h1>Contact Me</h1>
+        <div class="contact-content">
+            <div class="contact-social">
+                <a href="https://www.linkedin.com/in/ajisha-g-u-2809a42a4" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/ajisha889" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/ajisha_._" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61573171593056" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://wa.me/9385789812" target="_blank" rel="noopener">
+                 <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="tel:+919385789812">
+                <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:ajisha889@gmail.com">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Ajisha. All Rights Reserved. | Built with ❤️</p>
+    </footer>
+</body>
+</html>
